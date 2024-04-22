@@ -32,7 +32,7 @@ var water := 100.0:
 		if water <= 0:
 			died.emit(DeathReason.NoWater)
 	
-var health := 10:
+@export var health := 4:
 	set(v):
 		health = min(v, max_health)
 		health_changed.emit(health)
