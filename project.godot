@@ -11,5 +11,26 @@ config_version=5
 [application]
 
 config/name="micheals mansion"
+run/main_scene="res://world/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[debug]
+
+gdscript/warnings/unassigned_variable=2
+gdscript/warnings/unassigned_variable_op_assign=2
+gdscript/warnings/unused_variable=2
+gdscript/warnings/untyped_declaration=2
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[file_customization]
+
+folder_colors={
+"res://insect/": "red",
+"res://plant/": "orange",
+"res://world/": "blue"
+}

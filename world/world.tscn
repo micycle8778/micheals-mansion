@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpipujudik8wp"]
+
+[ext_resource type="Script" path="res://world/world.gd" id="1_67ala"]
+[ext_resource type="PackedScene" uid="uid://c10irijaqjvdr" path="res://plant/plant.tscn" id="1_qcvfs"]
+
+[sub_resource type="Curve2D" id="Curve2D_0fbre"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -214, -140, 0, 0, 0, 0, 1389, -131, 0, 0, 0, 0, 1450, 798, 0, 0, 0, 0, -144, 821, 0, 0, 0, 0, -216, -140)
+}
+point_count = 5
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_67ala")
+
+[node name="Plant" parent="." instance=ExtResource("1_qcvfs")]
+position = Vector2(529, 303)
+
+[node name="SpawningPath" type="Path2D" parent="."]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_0fbre")
