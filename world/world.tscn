@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpipujudik8wp"]
+[gd_scene load_steps=5 format=3 uid="uid://cpipujudik8wp"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_67ala"]
 [ext_resource type="PackedScene" uid="uid://c10irijaqjvdr" path="res://plant/plant.tscn" id="1_qcvfs"]
+[ext_resource type="PackedScene" uid="uid://6dhpnejtjxh5" path="res://swatta/swatta.tscn" id="3_u28i2"]
 
 [sub_resource type="Curve2D" id="Curve2D_0fbre"]
 _data = {
@@ -13,8 +14,11 @@ point_count = 5
 script = ExtResource("1_67ala")
 
 [node name="Plant" parent="." instance=ExtResource("1_qcvfs")]
-position = Vector2(529, 303)
+position = Vector2(652, 353)
 
 [node name="SpawningPath" type="Path2D" parent="."]
 unique_name_in_owner = true
 curve = SubResource("Curve2D_0fbre")
+
+[node name="Node2D" parent="." instance=ExtResource("3_u28i2")]
+position = Vector2(320, 517)
