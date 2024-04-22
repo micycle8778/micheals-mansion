@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ckxcnsodo7n2h" path="res://swatta/Swatta.webp" id="1_chh48"]
 [ext_resource type="Script" path="res://swatta/swatta.gd" id="1_j1ryj"]
-[ext_resource type="Script" path="res://swatta/insect_killer.gd" id="2_k15u4"]
+[ext_resource type="Script" path="res://swatta/insect_killer.gd" id="2_mjyot"]
 [ext_resource type="PackedScene" uid="uid://mqfmpypccn4t" path="res://tool/tool.tscn" id="3_4d1sl"]
 
 [sub_resource type="Animation" id="Animation_nmqr4"]
@@ -83,7 +83,7 @@ libraries = {
 
 [node name="InsectKiller" type="Area2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("2_k15u4")
+script = ExtResource("2_mjyot")
 
 [node name="Swatta" type="Sprite2D" parent="InsectKiller"]
 texture = ExtResource("1_chh48")

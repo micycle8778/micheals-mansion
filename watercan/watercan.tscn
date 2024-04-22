@@ -102,6 +102,7 @@ offset_left = -92.0
 offset_top = 79.0
 offset_right = 93.0
 offset_bottom = 87.0
+mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_xmfdo")
