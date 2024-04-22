@@ -1,6 +1,8 @@
 class_name Watercan
 extends Area2D
 
+static var instance: Watercan
+
 @export var water_count := 10
 @export var max_contained_water := 3
 @export var water_scene: PackedScene
@@ -11,8 +13,11 @@ extends Area2D
 
 @onready var contained_water := max_contained_water:
 	set(v):
-		contained_water = v
-		water_bar.value = v
+		contained_water = min(v, max_contained_water)
+		water_bar.value = contained_water
+
+func _init() -> void:
+	instance = self
 
 func _ready() -> void:
 	water_bar.max_value = max_contained_water

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpipujudik8wp"]
+[gd_scene load_steps=9 format=3 uid="uid://cpipujudik8wp"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_67ala"]
 [ext_resource type="PackedScene" uid="uid://c10irijaqjvdr" path="res://plant/plant.tscn" id="1_qcvfs"]
 [ext_resource type="PackedScene" uid="uid://6dhpnejtjxh5" path="res://swatta/swatta.tscn" id="3_u28i2"]
 [ext_resource type="PackedScene" uid="uid://w8v26m5aemb3" path="res://watercan/watercan.tscn" id="4_7qh1v"]
+[ext_resource type="Texture2D" uid="uid://dg3i8480lyafh" path="res://MichealsMansionBackground.webp" id="5_ytypx"]
+[ext_resource type="PackedScene" uid="uid://iakv04hemxrr" path="res://watering_hole/watering_hole.tscn" id="6_083i4"]
 
 [sub_resource type="Curve2D" id="Curve2D_0fbre"]
 _data = {
@@ -36,3 +38,13 @@ shape = SubResource("RectangleShape2D_j3osl")
 
 [node name="Watercan" parent="." instance=ExtResource("4_7qh1v")]
 position = Vector2(958, 485)
+
+[node name="MichealsMansionBackground" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(0, -182)
+scale = Vector2(1.66763, 1.66763)
+texture = ExtResource("5_ytypx")
+centered = false
+
+[node name="WateringHole" parent="." instance=ExtResource("6_083i4")]
+position = Vector2(1004, 500)
