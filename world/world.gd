@@ -13,13 +13,14 @@ func spawning_coroutine() -> void:
 	while true:
 		await get_tree().create_timer(spawn_timer).timeout
 		
-		var curve := spawning_path.curve
-		var sample := randf() * curve.point_count
-		var spawn_pos := spawning_path.curve.samplef(sample)
-		var insect: Insect = insect_scene.instantiate()
-		
-		insect.position = spawn_pos
-		add_child(insect)
+		for i in range(2):
+			var curve := spawning_path.curve
+			var sample := randf() * curve.point_count
+			var spawn_pos := spawning_path.curve.samplef(sample)
+			var insect: Insect = insect_scene.instantiate()
+			
+			insect.position = spawn_pos
+			add_child(insect)
 		
 		spawn_timer = max(spawn_timer - spawn_ramp, spawn_timer)
 

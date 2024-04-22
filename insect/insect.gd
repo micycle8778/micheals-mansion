@@ -3,11 +3,6 @@ extends Area2D
 
 @export var speed := 200
 
-#func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	#if event is InputEventMouseButton:
-		#if event.pressed:
-			#queue_free()
-
 func _ready() -> void:
 	if Plant.instance == null:
 		process_mode = Node.PROCESS_MODE_DISABLED

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://6dhpnejtjxh5"]
+[gd_scene load_steps=10 format=3 uid="uid://6dhpnejtjxh5"]
 
 [ext_resource type="Texture2D" uid="uid://ckxcnsodo7n2h" path="res://swatta/Swatta.webp" id="1_chh48"]
 [ext_resource type="Script" path="res://swatta/swatta.gd" id="1_j1ryj"]
+[ext_resource type="Script" path="res://swatta/insect_killer.gd" id="2_k15u4"]
 [ext_resource type="PackedScene" uid="uid://mqfmpypccn4t" path="res://tool/tool.tscn" id="3_4d1sl"]
 
 [sub_resource type="Animation" id="Animation_nmqr4"]
@@ -9,7 +10,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/path = NodePath("InsectKiller:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -18,21 +19,45 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InsectKiller:active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_lyl3l"]
 resource_name = "swatting"
-length = 0.5
+length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/path = NodePath("InsectKiller:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(0.189465, 22.6275, 0.129408),
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.75),
+"transitions": PackedFloat32Array(0.189465, 22.6275, 0.129408, 1),
 "update": 0,
-"values": [0.0, -0.983873, 1.14779]
+"values": [0.0, -0.983873, 1.14779, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InsectKiller:active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cy7j2"]
@@ -56,13 +81,14 @@ libraries = {
 "": SubResource("AnimationLibrary_cy7j2")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="InsectKiller" type="Area2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("2_k15u4")
 
-[node name="Swatta" type="Sprite2D" parent="Area2D"]
+[node name="Swatta" type="Sprite2D" parent="InsectKiller"]
 texture = ExtResource("1_chh48")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InsectKiller"]
 position = Vector2(0.5, -197)
 shape = SubResource("RectangleShape2D_oxmn6")
 
