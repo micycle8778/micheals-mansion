@@ -66,7 +66,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is Insect:
 		health -= 1
 		area.queue_free()
-	
+
+func _on_water_collector_area_entered(area: Area2D) -> void:
 	if area is WaterDrop:
 		if not area.vulnrable:
 			await area.became_vulnrable

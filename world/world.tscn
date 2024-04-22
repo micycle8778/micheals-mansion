@@ -48,3 +48,5 @@ centered = false
 
 [node name="WateringHole" parent="." instance=ExtResource("6_083i4")]
 position = Vector2(1004, 500)
+
+[connection signal="died" from="Plant" to="." method="_on_plant_died"]

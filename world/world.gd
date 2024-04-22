@@ -1,9 +1,13 @@
 class_name World
 extends Node2D
 
-@export var spawn_timer := 1.0
-@export var minimum_spawn_timer := .05
-@export var spawn_ramp := .05
+@export var spawn_timer := 1.75:
+	set(v):
+		spawn_timer = v
+		print("spawn_timer = ", v)
+		
+@export var minimum_spawn_timer := .5
+@export var spawn_ramp := .02
 
 @export var insect_scene: PackedScene = preload("uid://c4ik87aloa2yr")
 
@@ -22,7 +26,11 @@ func spawning_coroutine() -> void:
 			insect.position = spawn_pos
 			add_child(insect)
 		
-		spawn_timer = max(spawn_timer - spawn_ramp, spawn_timer)
+		spawn_timer = max(spawn_timer - spawn_ramp, minimum_spawn_timer)
 
 func _ready() -> void:
 	spawning_coroutine()
+
+
+func _on_plant_died(reason: Plant.DeathReason) -> void:
+	pass # Replace with function body.
