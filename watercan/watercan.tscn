@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://w8v26m5aemb3"]
+
+[ext_resource type="Script" path="res://watercan/watercan.gd" id="1_p7hrf"]
+[ext_resource type="PackedScene" uid="uid://mqfmpypccn4t" path="res://tool/tool.tscn" id="1_ss0h0"]
+[ext_resource type="PackedScene" uid="uid://bb12rb2k53b11" path="res://water_drop/water_drop.tscn" id="2_napvh"]
+[ext_resource type="Texture2D" uid="uid://dcinjfte7gowy" path="res://watercan/watercan.webp" id="2_tiu6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s04fw"]
+size = Vector2(200, 200)
+
+[sub_resource type="Animation" id="Animation_tyn82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Watercan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1cgvm"]
+resource_name = "pouring"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Watercan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(0.0647042, 0.307786, 1),
+"update": 0,
+"values": [0.0, -1.08207, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_waters"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6ty5"]
+_data = {
+"RESET": SubResource("Animation_tyn82"),
+"pouring": SubResource("Animation_1cgvm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8i6j"]
+size = Vector2(201, 201)
+
+[node name="Watercan" type="Area2D"]
+script = ExtResource("1_p7hrf")
+water_scene = ExtResource("2_napvh")
+
+[node name="Watercan" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tiu6w")
+offset = Vector2(80, 100)
+
+[node name="WaterSpawnPosition" type="Marker2D" parent="Watercan"]
+unique_name_in_owner = true
+position = Vector2(48, 38)
+
+[node name="Tool" parent="." instance=ExtResource("1_ss0h0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tool"]
+position = Vector2(-4, 5)
+shape = SubResource("RectangleShape2D_s04fw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g6ty5")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 4.5)
+shape = SubResource("RectangleShape2D_g8i6j")
+
+[connection signal="used" from="Tool" to="." method="_on_tool_used"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -9,17 +9,21 @@ static var tool_held := false
 
 var in_use := false:
 	set(v):
-		if tool_held:
+		if v and tool_held:
 			return
 		
 		in_use = v
+		tool_held = v
 		if v:
 			picked_up.emit()
 		else:
 			dropped.emit()
-			tool_held = false
 
 var hold_spot := Vector2()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("drop_tool"):
+		in_use = false
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("use_tool"):
@@ -29,10 +33,7 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 			# this no-ops if tool_held = true
 			in_use = true
 			hold_spot = get_global_mouse_position() - get_parent().global_position
-	elif event.is_action_pressed("drop_tool"):
-		in_use = false
 
 func _process(_delta: float) -> void:
 	if in_use:
 		get_parent().global_position = get_global_mouse_position() - hold_spot
-		print(position)

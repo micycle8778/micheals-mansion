@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpipujudik8wp"]
+[gd_scene load_steps=7 format=3 uid="uid://cpipujudik8wp"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_67ala"]
 [ext_resource type="PackedScene" uid="uid://c10irijaqjvdr" path="res://plant/plant.tscn" id="1_qcvfs"]
 [ext_resource type="PackedScene" uid="uid://6dhpnejtjxh5" path="res://swatta/swatta.tscn" id="3_u28i2"]
+[ext_resource type="PackedScene" uid="uid://w8v26m5aemb3" path="res://watercan/watercan.tscn" id="4_7qh1v"]
 
 [sub_resource type="Curve2D" id="Curve2D_0fbre"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -214, -140, 0, 0, 0, 0, 1389, -131, 0, 0, 0, 0, 1450, 798, 0, 0, 0, 0, -144, 821, 0, 0, 0, 0, -216, -140)
 }
 point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3osl"]
+size = Vector2(1282, 720)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_67ala")
@@ -22,3 +26,13 @@ curve = SubResource("Curve2D_0fbre")
 
 [node name="Node2D" parent="." instance=ExtResource("3_u28i2")]
 position = Vector2(320, 517)
+
+[node name="Screen" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screen"]
+visible = false
+position = Vector2(642, 359)
+shape = SubResource("RectangleShape2D_j3osl")
+
+[node name="Watercan" parent="." instance=ExtResource("4_7qh1v")]
+position = Vector2(958, 485)
