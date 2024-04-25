@@ -30,9 +30,13 @@ func spawning_coroutine() -> void:
 
 func _ready() -> void:
 	level_started_msec = Time.get_ticks_msec()
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	spawning_coroutine()
 
 func _on_plant_died(reason: Plant.DeathReason) -> void:
 	death_reason = reason
 	get_tree().change_scene_to_file.call_deferred("uid://mtwl05xvpndq")
+
+func _exit_tree() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
