@@ -13,6 +13,9 @@ extends Node2D
 
 @onready var spawning_path: Path2D = %SpawningPath
 
+static var level_started_msec: float
+static var death_reason: Plant.DeathReason
+
 func spawning_coroutine() -> void:
 	while true:
 		await get_tree().create_timer(spawn_timer).timeout
@@ -29,7 +32,10 @@ func spawning_coroutine() -> void:
 		spawn_timer = max(spawn_timer - spawn_ramp, minimum_spawn_timer)
 
 func _ready() -> void:
+	level_started_msec = Time.get_ticks_msec()
+	
 	spawning_coroutine()
 
 func _on_plant_died(reason: Plant.DeathReason) -> void:
-	pass # Replace with function body.
+	death_reason = reason
+	get_tree().change_scene_to_file("uid://mtwl05xvpndq")

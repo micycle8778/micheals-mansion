@@ -38,7 +38,7 @@ var water := 100.0:
 		health_changed.emit(health)
 		health_bar.value = health
 		
-		if water <= 0:
+		if health <= 0:
 			died.emit(DeathReason.NoHealth)
 
 @onready var water_bar: ProgressBar = %WaterBar

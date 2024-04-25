@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg3i8480lyafh"
-path="res://.godot/imported/MichealsMansionBackground.webp-34fc88320571cc0954853659b3b1bcd0.ctex"
+uid="uid://cuxwmluab7al0"
+path="res://.godot/imported/MichealsMansionLoss.webp-e79abfb2d8f7543ed91347aca2b4bc32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MichealsMansionBackground.webp"
-dest_files=["res://.godot/imported/MichealsMansionBackground.webp-34fc88320571cc0954853659b3b1bcd0.ctex"]
+source_file="res://fail_screen/MichealsMansionLoss.webp"
+dest_files=["res://.godot/imported/MichealsMansionLoss.webp-e79abfb2d8f7543ed91347aca2b4bc32.ctex"]
 
 [params]
 
