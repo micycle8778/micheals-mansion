@@ -7,7 +7,8 @@ static var instance: Watercan
 @export var max_contained_water := 3
 @export var water_scene: PackedScene
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var tilt_animation: AnimationPlayer = %TiltAnimation
+@onready var modulate_animation: AnimationPlayer = %ModulateAnimation
 @onready var water_spawn_position: Marker2D = %WaterSpawnPosition
 @onready var water_bar: ProgressBar = %WaterBar
 
@@ -15,6 +16,11 @@ static var instance: Watercan
 	set(v):
 		contained_water = min(v, max_contained_water)
 		water_bar.value = contained_water
+		
+		if v == 0:
+			modulate_animation.play("Drained")
+		elif v == max_contained_water:
+			modulate_animation.play("Refilled")
 
 func _init() -> void:
 	instance = self
@@ -35,12 +41,13 @@ func spawn_waters() -> void:
 
 func _on_tool_used() -> void:
 	if contained_water >= 1:
-		animation_player.play("pouring")
+		tilt_animation.play("pouring")
 
-func _on_animation_player_animation_finished(anim_name: String) -> void:
+func _on_tilt_animation_animation_finished(anim_name: String) -> void:
 	if anim_name == "pouring":
-		animation_player.play("RESET")
+		tilt_animation.play("RESET")
 	elif anim_name == "RESET":
 		pass
 	else:
 		push_error("unknown animation finished " + anim_name)
+

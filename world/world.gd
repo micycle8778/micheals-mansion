@@ -15,7 +15,7 @@ static var death_reason: Plant.DeathReason
 
 func spawning_coroutine() -> void:
 	while true:
-		await get_tree().create_timer(spawn_timer).timeout
+		await Autoloaded.get_tree().create_timer(spawn_timer).timeout
 		
 		for i in range(2):
 			var curve := spawning_path.curve

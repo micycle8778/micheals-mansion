@@ -15,6 +15,10 @@ run/main_scene="res://world/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Autoloaded="*res://autoloaded.gd"
+
 [debug]
 
 gdscript/warnings/unassigned_variable=2
