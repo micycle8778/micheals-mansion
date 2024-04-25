@@ -35,7 +35,7 @@ func spawn_waters() -> void:
 	for i in range(water_count):
 		var water: WaterDrop = water_scene.instantiate()
 		water.global_position = water_spawn_position.global_position + \
-			(Vector2.RIGHT.rotated(randf() * 2 * PI) * 10)
+			(Vector2.RIGHT.rotated(randf() * 2 * PI) * 30)
 		
 		get_tree().current_scene.add_child(water)
 
