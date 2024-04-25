@@ -1,10 +1,7 @@
 class_name World
 extends Node2D
 
-@export var spawn_timer := 1.75:
-	set(v):
-		spawn_timer = v
-		print("spawn_timer = ", v)
+@export var spawn_timer := 1.75
 		
 @export var minimum_spawn_timer := .5
 @export var spawn_ramp := .02
