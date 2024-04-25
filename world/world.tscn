@@ -41,8 +41,7 @@ position = Vector2(958, 485)
 
 [node name="MichealsMansionBackground" type="Sprite2D" parent="."]
 z_index = -1000
-position = Vector2(0, -182)
-scale = Vector2(1.66763, 1.66763)
+scale = Vector2(1.87, 1.87)
 texture = ExtResource("5_ytypx")
 centered = false
 
