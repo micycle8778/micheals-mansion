@@ -35,4 +35,4 @@ func _ready() -> void:
 
 func _on_plant_died(reason: Plant.DeathReason) -> void:
 	death_reason = reason
-	get_tree().change_scene_to_file("uid://mtwl05xvpndq")
+	get_tree().change_scene_to_file.call_deferred("uid://mtwl05xvpndq")

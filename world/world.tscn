@@ -34,7 +34,7 @@ position = Vector2(652, 353)
 unique_name_in_owner = true
 curve = SubResource("Curve2D_0fbre")
 
-[node name="Node2D" parent="." instance=ExtResource("3_u28i2")]
+[node name="Swatta" parent="." instance=ExtResource("3_u28i2")]
 position = Vector2(320, 517)
 
 [node name="Screen" type="Area2D" parent="."]

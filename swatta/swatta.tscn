@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://6dhpnejtjxh5"]
+[gd_scene load_steps=13 format=3 uid="uid://6dhpnejtjxh5"]
 
 [ext_resource type="Texture2D" uid="uid://ckxcnsodo7n2h" path="res://swatta/Swatta.webp" id="1_chh48"]
 [ext_resource type="Script" path="res://swatta/swatta.gd" id="1_j1ryj"]
 [ext_resource type="Script" path="res://swatta/insect_killer.gd" id="2_mjyot"]
 [ext_resource type="PackedScene" uid="uid://mqfmpypccn4t" path="res://tool/tool.tscn" id="3_4d1sl"]
+[ext_resource type="Texture2D" uid="uid://6h0pc3oh10af" path="res://swatta/Swatta-Shadow.webp" id="3_lg2si"]
 [ext_resource type="AudioStream" uid="uid://myg2d0c1o22s" path="res://swatta/swat.ogg" id="5_pu1k1"]
 
 [sub_resource type="Animation" id="Animation_nmqr4"]
@@ -104,6 +105,11 @@ libraries = {
 [node name="InsectKiller" type="Area2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_mjyot")
+
+[node name="SwattaShadow" type="Sprite2D" parent="InsectKiller"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(3, 1)
+texture = ExtResource("3_lg2si")
 
 [node name="Swatta" type="Sprite2D" parent="InsectKiller"]
 texture = ExtResource("1_chh48")

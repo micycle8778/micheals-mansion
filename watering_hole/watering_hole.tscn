@@ -9,6 +9,12 @@ size = Vector2(753, 325)
 [node name="WateringHole" type="Area2D"]
 script = ExtResource("1_i2kko")
 
+[node name="WateringHoleShadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -900
+position = Vector2(1, 4)
+texture = ExtResource("1_0rr34")
+
 [node name="WateringHole" type="Sprite2D" parent="."]
 z_index = -900
 texture = ExtResource("1_0rr34")

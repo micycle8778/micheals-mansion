@@ -15,6 +15,7 @@ stream_0/stream = ExtResource("4_ks67p")
 stream_0/weight = 1.0
 
 [node name="Insect" type="Area2D"]
+z_index = -100
 script = ExtResource("1_m34ja")
 speed = 100
 
