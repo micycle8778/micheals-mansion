@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Autoloaded="*res://autoloaded.gd"
+MusicPlayer="*res://music_player/music_player.tscn"
 
 [debug]
 
