@@ -16,8 +16,10 @@ var in_use := false:
 		tool_held = v
 		if v:
 			picked_up.emit()
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 		else:
 			dropped.emit()
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 var hold_spot := Vector2()
 
