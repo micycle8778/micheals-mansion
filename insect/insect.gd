@@ -1,7 +1,11 @@
 class_name Insect
 extends Area2D
 
+signal killed
+
 @export var speed := 200
+
+@onready var death_sound: PersistantAudioStreamPlayer = %DeathSound
 
 func _ready() -> void:
 	if Plant.instance == null:
@@ -15,3 +19,9 @@ func _physics_process(delta: float) -> void:
 		.normalized()
 		
 	position += to_plant * speed * delta
+
+func kill() -> void:
+	death_sound.play_persistant()
+	
+	killed.emit()
+	queue_free()

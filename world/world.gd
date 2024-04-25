@@ -31,6 +31,5 @@ func spawning_coroutine() -> void:
 func _ready() -> void:
 	spawning_coroutine()
 
-
 func _on_plant_died(reason: Plant.DeathReason) -> void:
 	pass # Replace with function body.

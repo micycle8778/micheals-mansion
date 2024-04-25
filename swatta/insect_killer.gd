@@ -6,4 +6,4 @@ func _physics_process(_delta: float) -> void:
 	if active:
 		for area in get_overlapping_areas():
 			if area is Insect:
-				area.queue_free()
+				area.kill()
