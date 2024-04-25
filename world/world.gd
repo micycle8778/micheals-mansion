@@ -30,9 +30,12 @@ func spawning_coroutine() -> void:
 
 func _ready() -> void:
 	level_started_msec = Time.get_ticks_msec()
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	spawning_coroutine()
+	
+	# waiting a frame fixes weird input bug?????
+	await get_tree().process_frame
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func _on_plant_died(reason: Plant.DeathReason) -> void:
 	death_reason = reason
