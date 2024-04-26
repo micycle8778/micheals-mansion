@@ -31,5 +31,5 @@ shape = SubResource("RectangleShape2D_2wlkw")
 [node name="DeathSound" parent="." instance=ExtResource("3_k4o5u")]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_jvlma")
-volume_db = -20.0
 pitch_scale = 0.8
+bus = &"SFX"
