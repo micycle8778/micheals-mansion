@@ -26,15 +26,18 @@ func spawning_coroutine() -> void:
 			insect.position = spawn_pos
 			add_child(insect)
 		
-		spawn_timer = max(spawn_timer - spawn_ramp, minimum_spawn_timer)
+		spawn_timer = maxf(spawn_timer - spawn_ramp, minimum_spawn_timer)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		#print("unhandled event: ", event)
+		pass
 
 func _ready() -> void:
 	level_started_msec = Time.get_ticks_msec()
 	
 	spawning_coroutine()
 	
-	# waiting a frame fixes weird input bug?????
-	await get_tree().process_frame
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func _on_plant_died(reason: Plant.DeathReason) -> void:

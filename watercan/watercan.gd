@@ -3,7 +3,7 @@ extends Area2D
 
 static var instance: Watercan
 
-@export var water_count := 10
+@export var water_count := 4
 @export var max_contained_water := 3
 @export var water_scene: PackedScene
 
@@ -38,6 +38,7 @@ func spawn_waters() -> void:
 			(Vector2.RIGHT.rotated(randf() * 2 * PI) * 30)
 		
 		get_tree().current_scene.add_child(water)
+		await get_tree().create_timer(.05).timeout
 
 func _on_tool_used() -> void:
 	if contained_water >= 1:

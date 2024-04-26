@@ -124,6 +124,7 @@ _data = {
 
 [node name="Watercan" type="Area2D"]
 script = ExtResource("1_p7hrf")
+water_count = 10
 water_scene = ExtResource("2_napvh")
 
 [node name="Watercan" type="Sprite2D" parent="."]
