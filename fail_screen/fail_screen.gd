@@ -37,7 +37,7 @@ func _ready() -> void:
 	time_label.text = time_label.text \
 		.format([string_of_msec(Time.get_ticks_msec() - World.level_started_msec)])
 
-	MusicPlayer.pitch_scale = .7
+	MusicPlayer.pitch_scale = .85
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("uid://cpipujudik8wp")
