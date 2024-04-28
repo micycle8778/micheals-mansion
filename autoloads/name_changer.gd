@@ -14,7 +14,21 @@ var michaels: Array[String] = [
 	"mikuel",
 	"morical",
 	"mario",
-	"marchicle"
+	"marchicle",
+	"marco",
+	"michæl",
+	"mychel",
+	"mycoal",
+	"mychime",
+	"miracle",
+	"micolla",
+	"mycrew",
+	"mike",
+	"micycle",
+	"marchell",
+	"marchle",
+	"michal",
+	"mikal"
 ]
 
 func _ready() -> void:
