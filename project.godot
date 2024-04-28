@@ -17,8 +17,9 @@ config/icon="res://insect/insect.webp"
 
 [autoload]
 
-Autoloaded="*res://autoloaded.gd"
+Autoloaded="*res://autoloads/autoloaded.gd"
 MusicPlayer="*res://music_player/music_player.tscn"
+NameChanger="*res://autoloads/name_changer.gd"
 
 [debug]
 
