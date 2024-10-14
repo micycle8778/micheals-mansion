@@ -8,7 +8,7 @@ func string_of_msec(msec: float) -> String:
 	
 	var seconds := raw_seconds % 60
 	var minutes := (raw_seconds / 60) % 60
-	var hours := raw_seconds / 360
+	var hours := raw_seconds / 3600
 	
 	var elements: Array[String] = []
 	
